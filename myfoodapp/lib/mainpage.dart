@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:myfoodapp/authpage.dart';
 import 'package:myfoodapp/homepage.dart';
 import 'package:myfoodapp/loginpage.dart';
 
@@ -32,7 +33,7 @@ class MainPage extends StatelessWidget {
               return HomePage();
           }
           else{
-              return LoginPage();
+              return AuthPage();
           }
         }
       ),

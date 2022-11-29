@@ -3,44 +3,48 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myfoodapp/pages/forgotpassword.dart';
 
-class LoginPage extends StatefulWidget {
-  //method we can give to gesture detector
-  final VoidCallback showRegisterPage;
-
-  const LoginPage({Key? key, required this.showRegisterPage}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  final VoidCallback showLoginPage;
+  const RegisterPage({
+    Key? key,
+    required this.showLoginPage,
+  }) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  //create controllers for the two text fields
-  //password and email
-  //we need these to track what the user types into each field
+class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmpasswordController = TextEditingController();
 
-  //create sign in method
-  //future used for async like promises
-  //we asynchrously checking if we can sign in or not
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      //grab just the text trim helps format text
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
-  }
-
-  //dispose of our controllers to help our memory management
-  //dispose of them when were not using it
   @override
   void dispose() {
     // TODO: implement dispose
     emailController.dispose();
     passwordController.dispose();
+    confirmpasswordController.dispose();
     super.dispose();
+  }
+
+  Future signUp() async {
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    }
+  }
+
+  //methods to check if passwords are the same
+  bool passwordConfirmed() {
+    if (passwordController.text.trim() ==
+        confirmpasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
@@ -56,12 +60,12 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Image(image: NetworkImage('https://tinyurl.com/bdhm4kw6')),
               SizedBox(height: 20),
-              Text('Pizza Dozzina',
+              Text('Hello There',
                   style: GoogleFonts.bebasNeue(
                     fontSize: 52,
                   )),
               SizedBox(height: 10),
-              Text('Welcome back! you have been missed',
+              Text('Register Below with your details',
                   style: TextStyle(
                     fontSize: 20,
                   )),
@@ -114,34 +118,30 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
+              //password
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context,MaterialPageRoute(builder: (context){
-                          return ForgotPasswordPage();
-                           },
-                         ),
-                        );
-                      },
-                      child: Text(
-                          'Forgot Password?', 
-                          style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,)
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: TextField(
+                      controller: confirmpasswordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Confirm Password',
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ),
               SizedBox(height: 10),
-
-
 
               //sign in button
               Padding(
@@ -149,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: GestureDetector(
                   //GestureDetector class for detecting common gestures
                   //tap on sign in button then execute sign In button
-                  onTap: signIn,
+                  onTap: signUp,
                   child: Container(
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
@@ -157,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(
-                        child: Text('Sign In',
+                        child: Text('Sign Up',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -171,15 +171,15 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Not a member?',
+                  Text('I am a member?',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                       )),
                   GestureDetector(
-                    onTap: widget.showRegisterPage,
+                    onTap: widget.showLoginPage,
                     child: Text(
-                      'Register now',
+                      'Login now',
                       style: TextStyle(
                         color: Colors.blue,
                         fontSize: 25,
