@@ -11,9 +11,7 @@ class ForgotPasswordPage extends StatefulWidget {
 }
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
-
   final emailController = TextEditingController();
-
 
   @override
   void dispose() {
@@ -23,10 +21,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   }
 
   Future passwordReset() async {
-    try{
-    await FirebaseAuth.instance
-    .sendPasswordResetEmail(email: emailController.text.trim());
-     showDialog(
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: emailController.text.trim());
+      showDialog(
           context: context,
           builder: (context) {
             return AlertDialog(
@@ -34,21 +32,21 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             );
           });
     } on FirebaseException catch (e) {
-            print(e);
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  content: Text(e.message.toString()),
-                );
-              });
+      print(e);
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(e.message.toString()),
+            );
+          });
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         backgroundColor: Colors.red,
         elevation: 0,
@@ -57,10 +55,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal:25.0),
-            child: Text('Enter Your Email and we will send you a password reset link',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Text(
+              'Enter Your Email and we will send you a password reset link',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20),
             ),
           ),
           SizedBox(height: 10),
@@ -86,11 +85,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             ),
           ),
           SizedBox(height: 10),
-
-          MaterialButton(onPressed: passwordReset,
-             child: Text('Reset Password'),
-             color: Colors.red,
-
+          MaterialButton(
+            onPressed: passwordReset,
+            child: Text('Reset Password'),
+            color: Colors.red,
           )
         ],
       ),
