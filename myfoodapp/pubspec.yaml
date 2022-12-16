@@ -39,6 +39,7 @@ dependencies:
   #FireBase Database
   #cloud_firestore: ^4.0.5
   firebase_auth: ^4.1.2
+  cloud_firestore: ^4.0.5
   google_fonts:
 
 dev_dependencies:
