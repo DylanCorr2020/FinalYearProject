@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myfoodapp/mainpage.dart';
-import 'loginpage.dart';
+import 'package:myfoodapp/pages/mainpage.dart';
+import 'pages/loginpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {

@@ -1,7 +1,7 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:myfoodapp/loginpage.dart';
-import 'package:myfoodapp/registerpage.dart';
+import 'package:myfoodapp/pages/loginpage.dart';
+import 'package:myfoodapp/pages/registerpage.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});

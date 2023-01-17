@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:myfoodapp/trolley.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,9 +10,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final user = FirebaseAuth.instance.currentUser!;
 
+  final user = FirebaseAuth.instance.currentUser!;
   final mealsCollection = FirebaseFirestore.instance.collection('meals');
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,7 @@ class _HomePageState extends State<HomePage> {
           }
 
           final meals = snapshot.data!.docs;
-          
+
           return ListView.builder(
             itemCount: meals.length,
             itemBuilder: (context, index) {
@@ -60,11 +63,10 @@ class _HomePageState extends State<HomePage> {
                 title: Text(name),
                 subtitle: Text(description),
                 trailing: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                 children: [
-                 Text('Price: \$$price'),
-                 ]
-                ),
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text('Price: \$$price'),
+                    ]),
               );
             },
           );

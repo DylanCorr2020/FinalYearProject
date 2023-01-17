@@ -2,9 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:myfoodapp/authpage.dart';
-import 'package:myfoodapp/homepage.dart';
-import 'package:myfoodapp/loginpage.dart';
+import 'package:myfoodapp/navigationbar.dart';
+import 'package:myfoodapp/pages/authpage.dart';
+import 'package:myfoodapp/pages/homepage.dart';
+import 'package:myfoodapp/pages/loginpage.dart';
 
 //this widget will be used to see of we are logged in or not 
 
@@ -30,7 +31,7 @@ class MainPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context,snapshot){
           if(snapshot.hasData){
-              return HomePage();
+              return Navbar();
           }
           else{
               return AuthPage();
