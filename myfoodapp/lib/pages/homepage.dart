@@ -10,11 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   final user = FirebaseAuth.instance.currentUser!;
   final mealsCollection = FirebaseFirestore.instance.collection('meals');
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -52,21 +49,41 @@ class _HomePageState extends State<HomePage> {
           final meals = snapshot.data!.docs;
 
           return ListView.builder(
+            scrollDirection: Axis.vertical,
             itemCount: meals.length,
             itemBuilder: (context, index) {
               final meal = meals[index];
+              final image = meal['image'];
               final name = meal['name'];
               final description = meal['description'];
               final price = meal['Price'];
 
-              return ListTile(
-                title: Text(name),
-                subtitle: Text(description),
-                trailing: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text('Price: \$$price'),
-                    ]),
+              return Container(
+                margin: new EdgeInsets.all(20.0),
+                height: 300,
+                width: 300,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                  child: Column(
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8.0),
+                          topRight: Radius.circular(8.0),
+                        ),
+                        child: Image.network(image,
+                            width: 400, height: 200, fit: BoxFit.fill),
+                      ),
+                      ListTile(
+                        title: Text(name),
+                        subtitle: Text(description),
+                        trailing: Text('Price: \$$price'),
+                      ),
+                      
+                    ],
+                  ),
+                ),
               );
             },
           );
