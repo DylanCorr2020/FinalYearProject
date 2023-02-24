@@ -1,5 +1,7 @@
 buildscript {
-    ext.kotlin_version = '1.7.10'
+   // CZ02 Use later version of Kotlin
+    // ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.8.10'
     repositories {
         google()
         mavenCentral()
@@ -8,6 +10,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+          // CZ01, Needed for firestore
+         classpath 'com.google.gms:google-services:4.3.5'
     }
 }
 

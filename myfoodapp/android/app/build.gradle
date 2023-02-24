@@ -24,9 +24,13 @@ if (flutterVersionName == null) {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+// CZ03 Fore firestore
+apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
+    //compileSdkVersion flutter.compileSdkVersion
+    // DC Make the same as master
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -44,11 +48,14 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.myfoodapp"
+        applicationId "com.atu.myfoodapp"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        // minSdkVersion flutter.minSdkVersion
+        //changed to fix errors
+        minSdkVersion 21
+        //targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -68,4 +75,6 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // CZ07 Add firebase bom
+    implementation platform('com.google.firebase:firebase-bom:27.0.0')
 }
