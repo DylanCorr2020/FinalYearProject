@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myfoodapp/controllers/authController.dart';
 import 'cons/firebase.dart';
 import 'controllers/appController.dart';
-import 'package:myfoodapp/screens/startup/startup.dart';
+import 'package:myfoodapp/screens/startup/startupScreen.dart';
 
+//This is the starting point for the application'
+//It initializes the application and controllers using GetX
 void main() async {
   // Ensure that widgets are initialized before the app runs
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +15,7 @@ void main() async {
   await initialization.then((value) {
     // Register an instance of the AppController class
     Get.put(AppController());
+    Get.put(AuthController());
   });
 
   // Run the MyApp widget

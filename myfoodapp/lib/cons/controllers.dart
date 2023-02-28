@@ -1,4 +1,5 @@
 import 'package:myfoodapp/controllers/appController.dart';
+import 'package:myfoodapp/controllers/authController.dart';
 
 /*
   This line of code creates an instance of the AppController class using 
@@ -7,3 +8,4 @@ import 'package:myfoodapp/controllers/appController.dart';
    throughout the app, which makes it easy to manage the state of the app
 */
 AppController appController = AppController.instance;
+AuthController authController = AuthController.instance;

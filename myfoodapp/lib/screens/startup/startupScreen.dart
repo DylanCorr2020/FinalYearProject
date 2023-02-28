@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myfoodapp/cons/asset_paths.dart';
 
-//The StartUpScreen class is a stateless widget that displays an image in the center of the screen.
+//This class displays the start up screen for the application
 class StartUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,12 +12,12 @@ class StartUpScreen extends StatelessWidget {
         children: [
           Image.asset(
             logo,
-            width: 400,
+            width: 50,
+            height: 50,
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
-          
         ],
       ),
     );
