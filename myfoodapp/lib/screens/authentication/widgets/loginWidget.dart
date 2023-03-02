@@ -61,9 +61,10 @@ class LoginWidget extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   child: TextField(
+                    obscureText: true,
                     controller: authController.password,
                     decoration: InputDecoration(
-                        icon: Icon(Icons.lock),
+                     icon: Icon(Icons.lock),
                         fillColor: Colors.white,
                         border: InputBorder.none,
                         hintText: "Password"),

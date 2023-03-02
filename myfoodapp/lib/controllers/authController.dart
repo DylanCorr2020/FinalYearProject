@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:myfoodapp/cons/firebase.dart';
 import 'package:myfoodapp/models/user.dart';
 import 'package:myfoodapp/screens/authentication/authScreen.dart';
+import 'package:myfoodapp/screens/home/home.dart';
 
 //This class contains functions for registering, logging in, and logging out users using Firebase Authentication.
 //It manages user authentication and related data.
@@ -81,7 +82,7 @@ class AuthController extends GetxController {
       Get.offAll(() => AuthenticationScreen());
     } else {
       _initializeUserModel(user.uid);
-      //Get.offAll(() => HomeScreen());
+      Get.offAll(() => HomeScreen());
     }
   }
 
