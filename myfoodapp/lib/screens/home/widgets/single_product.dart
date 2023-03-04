@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:myfoodapp/models/product.dart';
 import 'package:myfoodapp/widgets/custom_text.dart';
 
-
-//Displays the details of a single product 
+//Displays the details of a single product
 class SingleProductWidget extends StatelessWidget {
   final ProductModel product;
 
-  const SingleProductWidget({required Key key, required this.product})
+  const SingleProductWidget({Key? key, required this.product})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class SingleProductWidget extends StatelessWidget {
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
                 ),
-                child: Image.asset(
+                child: Image.network(
                   product.image,
                   width: double.infinity,
                 )),
@@ -39,7 +38,7 @@ class SingleProductWidget extends StatelessWidget {
             text: product.name,
             size: 18,
             // added this to fix an error
-            color: Colors.black,
+            color: Colors.grey,
             weight: FontWeight.bold,
           ),
           CustomText(
@@ -47,7 +46,7 @@ class SingleProductWidget extends StatelessWidget {
             // added this to fix null error
             size: 18,
             weight: FontWeight.bold,
-            color: Colors.black,
+            color: Colors.grey,
           ),
           SizedBox(
             height: 5,
@@ -58,17 +57,17 @@ class SingleProductWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: CustomText(
-                  text: "\€${product.price}",
+                  text: "\$${product.price}",
                   size: 22,
                   // added this to fix error
-                  color: Colors.black,
+                  color: Colors.grey,
                   weight: FontWeight.bold,
                 ),
               ),
               SizedBox(
                 width: 30,
               ),
-              IconButton(icon: Icon(Icons.shopping_bag_outlined), onPressed: () {})
+              IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () {})
             ],
           ),
         ],

@@ -5,6 +5,8 @@ import 'cons/firebase.dart';
 import 'controllers/appController.dart';
 import 'package:myfoodapp/screens/startup/startupScreen.dart';
 
+import 'controllers/productsController.dart';
+
 //This is the starting point for the application'
 //It initializes the application and controllers using GetX
 void main() async {
@@ -16,6 +18,7 @@ void main() async {
     // Register an instance of the AppController class
     Get.put(AppController());
     Get.put(AuthController());
+    Get.put(ProductsController());
   });
 
   // Run the MyApp widget

@@ -1,6 +1,8 @@
 import 'package:myfoodapp/controllers/appController.dart';
 import 'package:myfoodapp/controllers/authController.dart';
 
+import '../controllers/productsController.dart';
+
 /*
   This line of code creates an instance of the AppController class using 
   the instance getter provided by the Get package. The instance getter 
@@ -9,3 +11,4 @@ import 'package:myfoodapp/controllers/authController.dart';
 */
 AppController appController = AppController.instance;
 AuthController authController = AuthController.instance;
+ProductsController productsController = ProductsController.instance;
