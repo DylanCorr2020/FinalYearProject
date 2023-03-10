@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myfoodapp/cons/controllers.dart';
+import 'package:myfoodapp/screens/authentication/widgets/forgotPassword.dart';
 import 'package:myfoodapp/widgets/app_button.dart';
 import 'package:myfoodapp/widgets/custom_btn.dart';
 
@@ -64,7 +65,7 @@ class LoginWidget extends StatelessWidget {
                     obscureText: true,
                     controller: authController.password,
                     decoration: InputDecoration(
-                     icon: Icon(Icons.lock),
+                        icon: Icon(Icons.lock),
                         fillColor: Colors.white,
                         border: InputBorder.none,
                         hintText: "Password"),
@@ -72,6 +73,21 @@ class LoginWidget extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SizedBox(height: 20),
+            ],
+          ),
+          GestureDetector(
+            onTap: () {
+              Get.to(ForgotPassword());
+            },
+            child: Text(
+              "                                  Forgot Password ?",
+              style: TextStyle(color: Colors.blue),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(25),

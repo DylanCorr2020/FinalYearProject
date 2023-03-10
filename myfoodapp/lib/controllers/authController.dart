@@ -6,6 +6,8 @@ import 'package:myfoodapp/models/user.dart';
 import 'package:myfoodapp/screens/authentication/authScreen.dart';
 import 'package:myfoodapp/screens/home/home.dart';
 
+import '../cons/app_constants.dart';
+
 //This class contains functions for registering, logging in, and logging out users using Firebase Authentication.
 //It manages user authentication and related data.
 class AuthController extends GetxController {
@@ -18,7 +20,8 @@ class AuthController extends GetxController {
 
   String usersCollection = "users";
   Rx<UserModel> userModel =
-      UserModel(id: "user_id", name: "user_name", email: "user_email").obs;
+      UserModel(id: "user_id", name: "user_name", email: "user_email", cart: [])
+          .obs;
   @override
   void onReady() {
     super.onReady();
@@ -65,8 +68,12 @@ class AuthController extends GetxController {
   }
 
   _addUserToFirestore(String userId) {
-    firebaseFirestore.collection(usersCollection).doc(userId).set(
-        {"name": name.text.trim(), "id": userId, "email": email.text.trim()});
+    firebaseFirestore.collection(usersCollection).doc(userId).set({
+      "name": name.text.trim(),
+      "id": userId,
+      "email": email.text.trim(),
+      "cart": []
+    });
   }
 
   _initializeUserModel(String userId) async {
@@ -81,10 +88,41 @@ class AuthController extends GetxController {
     if (user == null) {
       Get.offAll(() => AuthenticationScreen());
     } else {
+      userModel.bindStream(listenToUser());
       _initializeUserModel(user.uid);
       Get.offAll(() => HomeScreen());
     }
   }
+
+  // This code updates the Firestore database with item added
+// to the cart
+  updateUserData(Map<String, dynamic> data) {
+    //logger.i("logger - start updateUserData");
+    try {
+      firebaseFirestore
+          .collection(usersCollection)
+          .doc(firebaseUser.value?.uid)
+          .update(data);
+    } catch (e) {
+      logger.i("Error updating document: $e");
+      throw e;
+    }
+    //logger.i("logger - exit updateUserData");
+  }
+
+  void resetpassword(String email) async {
+    await auth.sendPasswordResetEmail(email: email).then((value) {
+      Get.offAll(AuthenticationScreen());
+      Get.snackbar("Password Reset email link is been sent", "Success");
+    }).catchError((onError) => Get.snackbar("Error In Email Reset", "Failed"));
+  }
+
+  // This method fires when changes occur in the firestore database
+  Stream<UserModel> listenToUser() => firebaseFirestore
+      .collection(usersCollection)
+      .doc(firebaseUser.value?.uid)
+      .snapshots()
+      .map((snapshot) => UserModel.fromSnapshot(snapshot));
 
   _cleanControllers() {
     name.clear();
