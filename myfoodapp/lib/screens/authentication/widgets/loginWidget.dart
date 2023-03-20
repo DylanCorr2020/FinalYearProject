@@ -8,6 +8,9 @@ import 'package:myfoodapp/widgets/custom_btn.dart';
 //This widget displays a login form with an email input, a password input, and a login button.
 //When the login button is tapped, it calls the logIn method of the authController instance.
 class LoginWidget extends StatelessWidget {
+
+late String emailErrorText;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,9 +45,9 @@ class LoginWidget extends StatelessWidget {
                         icon: Icon(Icons.email_outlined),
                         fillColor: Colors.white,
                         border: InputBorder.none,
-                        hintText: "Email"),
-                        
-                  ),
+                        hintText: "Email"
+                        ),
+                     ),
                   
                 ),
                 

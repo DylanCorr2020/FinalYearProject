@@ -20,9 +20,12 @@ class AuthController extends GetxController {
   TextEditingController phoneNumber = TextEditingController();
 
   String usersCollection = "users";
-  Rx<UserModel> userModel =
-      UserModel(id: "user_id", name: "user_name", email: "user_email", phonenumber: "user_phoneNumber", cart: [])
-          .obs;
+  Rx<UserModel> userModel = UserModel(
+      id: "user_id",
+      name: "user_name",
+      email: "user_email",
+      phonenumber: "user_phoneNumber",
+      cart: []).obs;
   @override
   void onReady() {
     super.onReady();
@@ -31,31 +34,30 @@ class AuthController extends GetxController {
     ever<User?>(firebaseUser, _setMainScreen as dynamic);
   }
 
-  //validation
-  String? validateEmail(String value) {
-    if (value.isEmpty) {
-      return 'Please enter your email address';
-    }
-    if (!GetUtils.isEmail(value)) {
-      return 'Please enter a valid email address';
-    }
-    return null;
-  }
-
-  String? validatePassword(String value) {
-    if (value.isEmpty) {
-      return 'Please enter your password';
-    }
-    if (value.length < 6) {
-      return 'Password should be at least 6 characters';
-    }
-    return null;
-  }
-
-
-
   void register() async {
-    try {
+   
+      if (name.text.trim().isEmpty ||
+        email.text.trim().isEmpty ||
+        password.text.trim().isEmpty ||
+        phoneNumber.text.trim().isEmpty) {
+      Get.snackbar("Register Failed", "Please fill in all the fields");
+      return;
+    }
+    if (!GetUtils.isEmail(email.text.trim())) {
+      Get.snackbar("Register Failed", "Please enter a valid email");
+      return;
+    }
+    if (password.text.trim().length < 6) {
+      Get.snackbar(
+          "Register Failed", "Password must be at least 6 characters long");
+      return;
+    }
+     if (!GetUtils.isPhoneNumber(phoneNumber.text.trim())) {
+      Get.snackbar("Registration Failed", "Please enter a valid phone number");
+      return;
+    }
+
+     try {
       await auth
           .createUserWithEmailAndPassword(
               email: email.text.trim(), password: password.text.trim())
@@ -67,11 +69,24 @@ class AuthController extends GetxController {
       });
     } catch (e) {
       debugPrint(e.toString());
-      Get.snackbar("Log In Failed", "Try again");
+      Get.snackbar("Log In Failed", "User Already Exists");
     }
   }
 
   void logIn() async {
+    if (email.text.trim().isEmpty || password.text.trim().isEmpty) {
+      Get.snackbar("Log In Failed", "Please enter both email and password");
+      return;
+    }
+    if (!GetUtils.isEmail(email.text.trim())) {
+      Get.snackbar("Log In Failed", "Please enter a valid email");
+      return;
+    }
+    if (password.text.trim().length < 6) {
+      Get.snackbar(
+          "Log In Failed", "Password must be at least 6 characters long");
+      return;
+    }
     try {
       await auth
           .signInWithEmailAndPassword(
@@ -83,7 +98,7 @@ class AuthController extends GetxController {
       });
     } catch (e) {
       debugPrint(e.toString());
-      Get.snackbar("Log In Failed", "Try again");
+      Get.snackbar("Log In Failed", "User does not exist");
     }
   }
 
@@ -96,7 +111,7 @@ class AuthController extends GetxController {
       "name": name.text.trim(),
       "id": userId,
       "email": email.text.trim(),
-      "phoneNumber": phoneNumber.text.trim(), 
+      "phoneNumber": phoneNumber.text.trim(),
       "cart": []
     });
   }
