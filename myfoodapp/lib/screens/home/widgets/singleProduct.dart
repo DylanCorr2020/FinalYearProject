@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myfoodapp/controllers/cartcontroller.dart';
 import 'package:myfoodapp/models/product.dart';
-import 'package:myfoodapp/screens/home/widgets/product_description.dart';
+import 'package:myfoodapp/screens/home/widgets/productDescription.dart';
 import 'package:myfoodapp/widgets/custom_text.dart';
 
 class SingleProductWidget extends StatelessWidget {

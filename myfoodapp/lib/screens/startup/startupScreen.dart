@@ -16,7 +16,7 @@ class StartUpScreen extends StatelessWidget {
             height: 50,
           ),
           SizedBox(
-            height: 2,
+            height: 0.5,
           ),
         ],
       ),

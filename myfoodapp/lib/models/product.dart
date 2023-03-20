@@ -10,7 +10,7 @@ class ProductModel {
   late String image;
   late String name;
   late String category;
-  late String description; 
+  late String description;
   late double price;
 
   ProductModel({
@@ -27,7 +27,7 @@ class ProductModel {
     image = data[IMAGE];
     name = data[NAME];
     category = data[CATEGORY];
-    description = data[DESCRIPTION]; 
+    description = data[DESCRIPTION];
     //price = data[PRICE];
     price = double.tryParse(data[PRICE]) ?? 0.0;
   }

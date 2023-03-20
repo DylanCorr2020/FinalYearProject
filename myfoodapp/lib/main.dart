@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myfoodapp/controllers/authController.dart';
+import 'package:myfoodapp/controllers/cartController.dart';
+import 'package:myfoodapp/screens/authentication/widgets/loginWidget.dart';
 import 'cons/firebase.dart';
 import 'controllers/appController.dart';
 import 'package:myfoodapp/screens/startup/startupScreen.dart';
-
 import 'controllers/productsController.dart';
 
 //This is the starting point for the application'
@@ -19,6 +20,7 @@ void main() async {
     Get.put(AppController());
     Get.put(AuthController());
     Get.put(ProductsController());
+    Get.put(CartController());
   });
 
   // Run the MyApp widget
@@ -39,6 +41,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: StartUpScreen(),
+      //home: LoginWidget(),
     );
   }
 }

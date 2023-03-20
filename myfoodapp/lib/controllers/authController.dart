@@ -17,10 +17,11 @@ class AuthController extends GetxController {
   TextEditingController name = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController email = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
 
   String usersCollection = "users";
   Rx<UserModel> userModel =
-      UserModel(id: "user_id", name: "user_name", email: "user_email", cart: [])
+      UserModel(id: "user_id", name: "user_name", email: "user_email", phonenumber: "user_phoneNumber", cart: [])
           .obs;
   @override
   void onReady() {
@@ -29,6 +30,29 @@ class AuthController extends GetxController {
     firebaseUser.bindStream(auth.userChanges());
     ever<User?>(firebaseUser, _setMainScreen as dynamic);
   }
+
+  //validation
+  String? validateEmail(String value) {
+    if (value.isEmpty) {
+      return 'Please enter your email address';
+    }
+    if (!GetUtils.isEmail(value)) {
+      return 'Please enter a valid email address';
+    }
+    return null;
+  }
+
+  String? validatePassword(String value) {
+    if (value.isEmpty) {
+      return 'Please enter your password';
+    }
+    if (value.length < 6) {
+      return 'Password should be at least 6 characters';
+    }
+    return null;
+  }
+
+
 
   void register() async {
     try {
@@ -72,6 +96,7 @@ class AuthController extends GetxController {
       "name": name.text.trim(),
       "id": userId,
       "email": email.text.trim(),
+      "phoneNumber": phoneNumber.text.trim(), 
       "cart": []
     });
   }

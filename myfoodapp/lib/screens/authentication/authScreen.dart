@@ -21,12 +21,12 @@ class AuthenticationScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: MediaQuery.of(context).size.width / 3),
+                SizedBox(height: MediaQuery.of(context).size.width / 8),
                 Image.asset(
                   logo,
                   width: 200,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width / 5),
+                SizedBox(height: MediaQuery.of(context).size.width / 8),
                 Visibility(
                     visible: _appController.isLoginScreenDisplayed.value,
                     child: LoginWidget()),

@@ -72,6 +72,43 @@ class RegWidget extends StatelessWidget {
               ),
             ],
           ),
+            Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width / 1.2,
+                margin: EdgeInsets.only(top: 30),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.grey.withOpacity(.3),
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  child: Row(
+                    children: [
+                      Icon(Icons.phone, size: 20),
+                      SizedBox(width: 10),
+                      Text(
+                        "+353", 
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: TextField(
+                          controller: authController.phoneNumber,
+                          decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              border: InputBorder.none,
+                              hintText: "Phone Number"),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -98,6 +135,7 @@ class RegWidget extends StatelessWidget {
               ),
             ],
           ),
+         
           Padding(
             padding: const EdgeInsets.all(25),
             child: AppButtons(
@@ -105,7 +143,7 @@ class RegWidget extends StatelessWidget {
                 widthSize: 400,
                 heightSize: 50,
                 textcolor: Colors.white,
-                backgroundColor: Colors.blue,
+                backgroundColor: Colors.green,
                 borderColor: Colors.black,
                 onTap: () {
                   authController.register();

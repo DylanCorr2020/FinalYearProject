@@ -70,7 +70,7 @@ class ForgotPassword extends StatelessWidget {
                       widthSize: 400,
                       heightSize: 50,
                       textcolor: Colors.white,
-                      backgroundColor: Colors.blue,
+                      backgroundColor: Colors.green,
                       borderColor: Colors.black,
                       onTap: () {
                         //authController.logIn();
