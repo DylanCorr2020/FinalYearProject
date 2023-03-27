@@ -49,7 +49,8 @@ class UserModel {
     }
     return _result;
   }
-
+   
+  //convert user properties into a map into JSON format 
   List cartItemsToJson() => cart.map((item) => item.toJson()).toList();
 }
 

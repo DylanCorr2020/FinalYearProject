@@ -89,7 +89,9 @@ class ShoppingCartWidget extends StatelessWidget {
                     textcolor: Colors.white,
                     backgroundColor: Colors.green,
                     borderColor: Colors.black,
-                    onTap: () {})) // end obx // end appButtons
+                    onTap: () {
+                      paymentsController.createThePayment();
+                    })) // end obx // end appButtons
               ],
             ),
           ),
