@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:myfoodapp/cons/controllers.dart';
+import 'package:myfoodapp/screens/chatbot/chatbot.dart';
 import 'package:myfoodapp/screens/home/widgets/products.dart';
 import 'package:myfoodapp/screens/home/widgets/shoppingCart.dart';
 import 'package:myfoodapp/widgets/custom_text.dart';
@@ -32,8 +33,14 @@ class HomeScreen extends StatelessWidget {
                       productsController.selectedCategory);
                 },
               )),
-          
-          actions: [
+
+             actions: [
+               IconButton(
+                icon: Icon(Icons.chat),
+                onPressed: () {
+                  // Navigate to chatbot screen
+                  Get.to(ChatBot());
+                }),
             IconButton(
                 icon: Icon(Icons.shopping_cart),
                 onPressed: () {

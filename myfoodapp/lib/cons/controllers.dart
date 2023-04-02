@@ -1,5 +1,6 @@
 import 'package:myfoodapp/controllers/appController.dart';
 import 'package:myfoodapp/controllers/authController.dart';
+import 'package:myfoodapp/controllers/chatBotController.dart';
 
 import '../controllers/cartController.dart';
 import '../controllers/paymentsController.dart';
@@ -11,8 +12,10 @@ import '../controllers/productsController.dart';
   ensures that only one instance of the AppController class is created and shared
    throughout the app, which makes it easy to manage the state of the app
 */
+
 AppController appController = AppController.instance;
 AuthController authController = AuthController.instance;
 ProductsController productsController = ProductsController.instance;
 CartController cartController = CartController.instance;
 PaymentsController paymentsController = PaymentsController.instance;
+ChatController chatBotController = ChatController.instance;

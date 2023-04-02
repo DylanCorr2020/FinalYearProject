@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "yummypizzachatbot-qigc",
+  "private_key_id": "1726d18affe60843e5979120d7b8c7b45fd02e04",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC0YRj0JE5Ytl5y\nZkrHXClLnwU00yhaWAHqwI/JHMSpxtKfaAgK0sQ0iHAWZyGlurEYtXnfijqNMxO4\nd1PKi56K95nDG1TKCV8FCY1ZglWxLpXZmSoMtzmluc0gMIOtpv8iVhWfT7d2OhHK\nRVYSL7XxSFkKUARZ8O8RYfLoRGycda4zUfVGrG7XHD2wSs/a/zRZ0oD4043dAbu6\n6BigLnbt0heeSatwaXMGhBlJ0J4O6vA54Bva3ww2gqfmYsj0keY+mJx7va/KGdk3\ns4zwuT4Ku5nPzyc41gfacP4eWrz5WBB0+IJbWpWQ+SAVaRMd2uPAB9Nkf+E1cTq1\nUZ4xy/95AgMBAAECggEAAUyRuXBpgAoQNBK4hycKxRioGPFMYRoxKVepsXEbmX1t\nFujQ5gMOlrJE3GRxwZfOnrbv4cRFF68+fR2e5N6MjcOqv9T6j1nx7T9cXUCrDVOg\nkKihvOW07JSh/ZFb4WxKehzUmwkf8SIJ7sMBE7B0RwCWY5Sf82Xg0uc5sKKNhbLw\nKzRKAa+8iIsl6Yajin+3Q3kpPSGo+eHo5to5i38ctHEdQHWZX1i6cLI8y/IMQb9f\ndpQdfmDeUOdRjHIuTLVQA3NGhk0kO8uTbrEUmCMaRxjdA+BWiFxA6j7Xf2jVmbox\nqQSVE35vzLbyXZb/Hh6U3/+K4VDf9NFxLfb4ETXUAQKBgQDpJ0Td4L0Q4Yl2kSxZ\nzxyX3LAmllzo791BCvcVmRtGSAZOM4b4wg0zjayz+Eu7X481jZ/KxxkJUiUqdu67\nfJ2VeyLx0RmfDnS6EQZBo0zz72/siK8d1GOLL9J4fWi2Z9bZHT6f84xiScufkSpF\nvvBKqTEdFhQ7ig41ix0xVJaZCQKBgQDGDfjoxHKAhO676JU0WDhvXofu1gsyMQBB\n3fl5aoPk9RShgz+I8qUKobG0Z9c3Z/dGoaHnltTSM7/04pVGelWNGHSYdJWsbaWK\nZVBkrQuFqMdG6RpkIdnuS0six9Dve+vae2QjcurJbuiTwECWhzcTWd3UNrBhfz0O\nKh/MOXf+8QKBgQCIy9WIKThFE09IFd1jxDUOlRl1Snuw4Ct84iYesfpivheVAn6K\nrbB5MwLFhUVJ5sNrtHCw1ShHY78Srz1bG76J2fmi0ACsZhruoNZ+5IVeCnos2fWF\nFvxgyeo/b7VkcICKWrJHvun7MTkbolyfF2x9IdADNNUiKdo0aC70pqDFoQKBgD+u\n5HdsG2lJ1T3ktn1DVLoyykC44Ja9/NgxGPO6lTh8uaqJeld9tiXqAisBLMmrC27R\nsC64aCxC6ZlDdj5YPcQFthADhNER3KXYl/YXUlojABjEAXFrFRkzarB/UaZ/0UHK\nZVOksuwcVnqT2fDM/5+gSNzgzOw8rpQsZVcUr4nxAoGBANmJ8ElVeeekFHf8w42s\nlfUtzre87wcv+Hu/moQq3q9YaQRr2UC84r+2VtshoeHp2Eg4TcGu/oIi3MYqRpFZ\nvByS2cz/X8RvCxA3755RQP96N5ZTSMP8BnIite2Vw7esc9HJw1u1mEdQrIR80cg8\nCvo80f7LPWCAT4z1PXUGv/Cr\n-----END PRIVATE KEY-----\n",
+  "client_email": "dcbot-830@yummypizzachatbot-qigc.iam.gserviceaccount.com",
+  "client_id": "103062343139138201778",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dcbot-830%40yummypizzachatbot-qigc.iam.gserviceaccount.com"
+}
