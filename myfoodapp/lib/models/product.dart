@@ -29,6 +29,6 @@ class ProductModel {
     category = data[CATEGORY];
     description = data[DESCRIPTION];
     //price = data[PRICE];
-    price = double.tryParse(data[PRICE]) ?? 0.0;
+    price = double.tryParse(data[PRICE]) ?? 0;
   }
 }

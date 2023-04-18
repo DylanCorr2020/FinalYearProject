@@ -25,15 +25,22 @@ class ProductDescription extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: CustomText(
-                  text: product.description,
-                  size: 20,
-                  color: Colors.black,
-                  weight: FontWeight.bold,
-                  //textAlign: TextAlign.center,
-                ),
+              child: Column(
+                children: [
+                  Image.network(
+                    product.image,
+                    fit: BoxFit.cover,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: CustomText(
+                      text: product.description,
+                      size: 20,
+                      color: Colors.black,
+                      weight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -42,3 +49,10 @@ class ProductDescription extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
