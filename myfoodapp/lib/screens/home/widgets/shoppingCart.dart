@@ -65,7 +65,7 @@ class ShoppingCartWidget extends StatelessWidget {
                     CustomText(
                       text: "Subtotal",
                       weight: FontWeight.bold,
-                      size: 16,
+                      size: 24,
                       color: Colors.black,
                     ),
 
@@ -73,7 +73,7 @@ class ShoppingCartWidget extends StatelessWidget {
                       () => CustomText(
                         text:
                             "\€${cartController.cartTotalPrice.value.toStringAsFixed(2)}",
-                        size: 16,
+                        size: 24,
                         color: Colors.black,
                         weight: FontWeight.bold,
                       ), // end custom text

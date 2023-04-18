@@ -95,7 +95,7 @@ class SingleProductWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomText(
-                        text: "\€${product.price}",
+                        text: "\€${product.price.toStringAsFixed(2)}",
                         size: 20,
                         color: Colors.black,
                         weight: FontWeight.bold,
