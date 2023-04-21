@@ -32,6 +32,11 @@ Follow instructions that it provides.
 flutter doctor
 ```
 
+Run the following command to clone the repository down to your local machine
+```
+git clone https://github.com/DylanCorr2020/FinalYearProject.git
+```
+
 # Integration with Firebase 
 Follow the steps to in the following video.Click [here](https://www.youtube.com/watch?v=Wa0rdbb53I8&t=329s)
 
@@ -81,6 +86,10 @@ Here the steps:
      ```
      publishableKey: ""
      ```
+
+## Setting Up DialogFlow
+
+
 
 
 Install Android Studio [here](https://developer.android.com/studio?gclid=CjwKCAjwiOCgBhAgEiwAjv5whFKiuYJtd_MgzZ_hon0WUILpXWpUlqK13_zlc2UW21Qo513Gt0VD3xoC38UQAvD_BwE&gclsrc=aw.ds)

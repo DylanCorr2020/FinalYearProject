@@ -73,7 +73,24 @@ class PaymentsController extends GetxController {
         _addToPayCollection(paymentStatus: status, paymentId: paymentMethod.id);
         //clear the user cart if payment successful
         authController.updateUserData({"cart": []});
-        Get.snackbar("Success", "Payment was successful");
+       Get.snackbar(
+          "Success",
+          "Payment was successful",
+          backgroundColor: Colors.black,
+          colorText: Colors.white,
+          snackStyle: SnackStyle.GROUNDED,
+          margin: EdgeInsets.all(20),
+          borderRadius: 10,
+          maxWidth: 400,
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 6),
+          duration: Duration(seconds: 8),
+          messageText: Text(
+            "Payment was successful",
+            style: TextStyle(fontSize: 20,  color: Colors.white,
+            ),
+            
+          ),
+        );
       } else {
         _addToPayCollection(paymentStatus: status, paymentId: paymentMethod.id);
       }

@@ -40,20 +40,53 @@ class AuthController extends GetxController {
         email.text.trim().isEmpty ||
         password.text.trim().isEmpty ||
         phoneNumber.text.trim().isEmpty) {
-      Get.snackbar("Register Failed", "Please fill in all the fields");
+      Get.snackbar("Register Failed", "Please fill in all the fields",
+      backgroundColor: Colors.black,
+      colorText: Colors.white,
+      messageText: Text(
+        "Please fill in all the fields",
+        style: TextStyle(fontSize: 20, color: Colors.white),
+      ),
+    );
       return;
     }
     if (!GetUtils.isEmail(email.text.trim())) {
-      Get.snackbar("Register Failed", "Please enter a valid email");
+       Get.snackbar(
+        "Register Failed",
+        "Please enter a valid email",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "Please enter a valid email",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
       return;
     }
     if (password.text.trim().length < 6) {
       Get.snackbar(
-          "Register Failed", "Password must be at least 6 characters long");
+        "Register Failed",
+        "Password must be at least 6 characters long",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "Password must be at least 6 characters long",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
       return;
     }
      if (!GetUtils.isPhoneNumber(phoneNumber.text.trim())) {
-      Get.snackbar("Registration Failed", "Please enter a valid phone number");
+        Get.snackbar(
+        "Registration Failed",
+        "Please enter a valid phone number",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "Please enter a valid phone number",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
       return;
     }
 
@@ -69,22 +102,57 @@ class AuthController extends GetxController {
       });
     } catch (e) {
       debugPrint(e.toString());
-      Get.snackbar("Log In Failed", "User Already Exists");
+     Get.snackbar(
+        "Log In Failed",
+        "User Already Exists",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "User Already Exists",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
     }
   }
 
   void logIn() async {
     if (email.text.trim().isEmpty || password.text.trim().isEmpty) {
-      Get.snackbar("Log In Failed", "Please enter both email and password");
+      Get.snackbar(
+        "Log In Failed",
+        "Please enter a valid email",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "Please enter a valid email",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
       return;
     }
     if (!GetUtils.isEmail(email.text.trim())) {
-      Get.snackbar("Log In Failed", "Please enter a valid email");
+      Get.snackbar(
+        "Log In Failed",
+        "Please enter a valid email",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "Please enter a valid email",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
       return;
     }
     if (password.text.trim().length < 6) {
-      Get.snackbar(
-          "Log In Failed", "Password must be at least 6 characters long");
+       Get.snackbar(
+        "Log In Failed",
+        "Password must be at least 6 characters long",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "Password must be at least 6 characters long",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
       return;
     }
     try {
@@ -98,7 +166,16 @@ class AuthController extends GetxController {
       });
     } catch (e) {
       debugPrint(e.toString());
-      Get.snackbar("Log In Failed", "User does not exist");
+      Get.snackbar(
+        "Log In Failed",
+        "User does not exist",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "User does not exist",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
     }
   }
 
@@ -153,8 +230,26 @@ class AuthController extends GetxController {
   void resetpassword(String email) async {
     await auth.sendPasswordResetEmail(email: email).then((value) {
       Get.offAll(AuthenticationScreen());
-      Get.snackbar("Password Reset email link is been sent", "Success");
-    }).catchError((onError) => Get.snackbar("Error In Email Reset", "Failed"));
+      Get.snackbar(
+        "Password Reset email link is been sent",
+        "Success",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "Password Reset email link has been sent",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
+    }).catchError((onError) => Get.snackbar(
+          "Error In Email Reset",
+          "Failed",
+          backgroundColor: Colors.black,
+          colorText: Colors.white,
+          messageText: Text(
+            "Error In Email Reset",
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
+        ));
   }
 
   // This method fires when changes occur in the firestore database

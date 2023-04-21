@@ -50,6 +50,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  integration_test:
+    sdk: flutter
 # Issue 05 SOLUTION
 dependency_overrides:
   modal_bottom_sheet:

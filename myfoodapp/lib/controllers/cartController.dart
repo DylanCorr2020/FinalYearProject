@@ -20,8 +20,19 @@ class CartController extends GetxController {
   void addProductToCart(ProductModel product) {
     try {
       if (_itemAlreadyAdded(product)) {
-        Get.snackbar("Warning",
-            "${product.name} is already added to your shopping cart");
+       Get.snackbar(
+          "Warning",
+          "${product.name} is already added to your shopping cart",
+          backgroundColor: Colors.black,
+          colorText: Colors.white,
+          messageText: Text(
+            "${product.name} is already added to your shopping cart",
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+            ),
+          ),
+        );
       } else {
         String itemId = Uuid().toString();
         authController.updateUserData({
@@ -38,7 +49,17 @@ class CartController extends GetxController {
           ])
         });
         Get.snackbar(
-            "Success", "${product.name} was added to your shopping cart");
+            "Success", "${product.name} was added to your shopping cart",
+             backgroundColor: Colors.black,
+          colorText: Colors.white,
+            messageText: Text(
+            "${product.name} was added to your shopping cart",
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+            ),
+          ),
+            );
       }
     } catch (e) {
       Get.snackbar("Error", "Cannot add this item");

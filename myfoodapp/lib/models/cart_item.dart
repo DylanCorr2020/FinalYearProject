@@ -21,7 +21,7 @@ class CartItemModel {
       required this.image,
       required this.name,
       required this.quantity,
-      required this.cost});
+      required this.cost,});
 
   CartItemModel.fromMap(Map<String, dynamic> data) {
     id = data[ID];
