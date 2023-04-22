@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/chatBotController.dart';
-
+//This is a class that creates a widget for displaying a list of messages in the chat interface.
+//The messages are stored in a list and passed to the widget as a parameter. 
+//The widget uses the GetX package to update the UI when new messages are added. 
+//It uses the Flutter ListView widget to display the messages and customizes the appearance 
+//of each message based on whether it is a user message or a bot message. 
+//The messages are formatted in a chat bubble style and displayed on the 
+//left or right side of the screen depending on who sent the message.
 class MessagesScreen extends StatelessWidget {
   final ChatController controller = Get.find();
   final RxList<Map<String, dynamic>> messages;

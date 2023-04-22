@@ -26,6 +26,9 @@ class AuthController extends GetxController {
       email: "user_email",
       phonenumber: "user_phoneNumber",
       cart: []).obs;
+
+// This code overrides the onReady() method of the GetxController class. 
+// This method is called when the state of the controller is ready.
   @override
   void onReady() {
     super.onReady();
@@ -34,24 +37,28 @@ class AuthController extends GetxController {
     ever<User?>(firebaseUser, _setMainScreen as dynamic);
   }
 
+//This method validates user input and registers a new user with Firebase Authentication.
+//It creates a new user with an email and password, adds user data to Firestore,
+//and initializes the user model.
   void register() async {
-   
-      if (name.text.trim().isEmpty ||
+    if (name.text.trim().isEmpty ||
         email.text.trim().isEmpty ||
         password.text.trim().isEmpty ||
         phoneNumber.text.trim().isEmpty) {
-      Get.snackbar("Register Failed", "Please fill in all the fields",
-      backgroundColor: Colors.black,
-      colorText: Colors.white,
-      messageText: Text(
+      Get.snackbar(
+        "Register Failed",
         "Please fill in all the fields",
-        style: TextStyle(fontSize: 20, color: Colors.white),
-      ),
-    );
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        messageText: Text(
+          "Please fill in all the fields",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      );
       return;
     }
     if (!GetUtils.isEmail(email.text.trim())) {
-       Get.snackbar(
+      Get.snackbar(
         "Register Failed",
         "Please enter a valid email",
         backgroundColor: Colors.black,
@@ -76,8 +83,8 @@ class AuthController extends GetxController {
       );
       return;
     }
-     if (!GetUtils.isPhoneNumber(phoneNumber.text.trim())) {
-        Get.snackbar(
+    if (!GetUtils.isPhoneNumber(phoneNumber.text.trim())) {
+      Get.snackbar(
         "Registration Failed",
         "Please enter a valid phone number",
         backgroundColor: Colors.black,
@@ -90,7 +97,7 @@ class AuthController extends GetxController {
       return;
     }
 
-     try {
+    try {
       await auth
           .createUserWithEmailAndPassword(
               email: email.text.trim(), password: password.text.trim())
@@ -102,7 +109,7 @@ class AuthController extends GetxController {
       });
     } catch (e) {
       debugPrint(e.toString());
-     Get.snackbar(
+      Get.snackbar(
         "Log In Failed",
         "User Already Exists",
         backgroundColor: Colors.black,
@@ -115,6 +122,8 @@ class AuthController extends GetxController {
     }
   }
 
+//This method validates user input and logs in a user with Firebase Authentication using email
+//and password.
   void logIn() async {
     if (email.text.trim().isEmpty || password.text.trim().isEmpty) {
       Get.snackbar(
@@ -143,7 +152,7 @@ class AuthController extends GetxController {
       return;
     }
     if (password.text.trim().length < 6) {
-       Get.snackbar(
+      Get.snackbar(
         "Log In Failed",
         "Password must be at least 6 characters long",
         backgroundColor: Colors.black,
@@ -179,10 +188,12 @@ class AuthController extends GetxController {
     }
   }
 
+// This method logs out the current user.
   void logOut() async {
     auth.signOut();
   }
 
+//This method adds user data to Firestore.
   _addUserToFirestore(String userId) {
     firebaseFirestore.collection(usersCollection).doc(userId).set({
       "name": name.text.trim(),
@@ -193,6 +204,7 @@ class AuthController extends GetxController {
     });
   }
 
+//This method initializes the user model by fetching the user's data from Firestore.
   _initializeUserModel(String userId) async {
     userModel.value = await firebaseFirestore
         .collection(usersCollection)
@@ -201,6 +213,7 @@ class AuthController extends GetxController {
         .then((doc) => UserModel.fromSnapshot(doc));
   }
 
+//This method sets the main screen based on the user's authentication state.
   _setMainScreen(User? user) {
     if (user == null) {
       Get.offAll(() => AuthenticationScreen());
@@ -227,6 +240,7 @@ class AuthController extends GetxController {
     //logger.i("logger - exit updateUserData");
   }
 
+//This method sends a password reset email to the user's email address.
   void resetpassword(String email) async {
     await auth.sendPasswordResetEmail(email: email).then((value) {
       Get.offAll(AuthenticationScreen());
@@ -252,13 +266,14 @@ class AuthController extends GetxController {
         ));
   }
 
+  //This method listens to changes in the user's data in Firestore.
   // This method fires when changes occur in the firestore database
   Stream<UserModel> listenToUser() => firebaseFirestore
       .collection(usersCollection)
       .doc(firebaseUser.value?.uid)
       .snapshots()
       .map((snapshot) => UserModel.fromSnapshot(snapshot));
-
+//This method clears the text controllers for the name, email, and password fields.
   _cleanControllers() {
     name.clear();
     email.clear();

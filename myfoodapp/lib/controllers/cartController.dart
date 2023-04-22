@@ -88,7 +88,8 @@ class CartController extends GetxController {
       });
     }
   }
-
+//This method checks if a given ProductModel object is already present in the user's cart and 
+//returns a boolean value.
   bool _itemAlreadyAdded(ProductModel product) =>
       authController.userModel.value.cart
           .where((item) => item.productId == product.id)

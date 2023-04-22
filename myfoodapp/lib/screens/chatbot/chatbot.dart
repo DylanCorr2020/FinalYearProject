@@ -6,7 +6,9 @@ import 'package:myfoodapp/screens/chatbot/messages.dart';
 
 import '../../controllers/chatBotController.dart';
 
-
+//This is a class that builds a chatbot interface, including a messages screen, 
+//a text input field, and a send button. 
+//It uses the GetX package for state management and Flutter widgets for building the UI.
 class ChatBot extends StatelessWidget {
   final ChatController chatController = Get.put(ChatController());
 
