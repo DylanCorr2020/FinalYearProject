@@ -18,10 +18,7 @@ This is a mobile food delivery application written in Flutter. This repository c
 
 # Introduction
 This project requires the following technologies
-Flutter/Dart
-Integration with Google Firebase
-Integration with Stripe
-Integration with Google DialogFlow 
+Flutter/Dart, Google Cloud Firestore, Stripe and Google DialogFlow.
 
 # Flutter/Dart
 1. Follow the steps in the following link to install Flutter , Android Studio and start up Android Studio Emulator. Click [here](https://docs.flutter.dev/get-started/install)
@@ -48,8 +45,8 @@ Follow the steps to in the following video to set up Firebase with Flutter.Click
 
 
 # Set up Firebase Project with Firebase Authentication
-1. In the firebase console click on Authentication left hand side menu.'
-2. Click on set up sign in method.
+1. In the firebase console click on Authentication left hand side menu.
+2. Click on sign in method.
 3. Enable email and password and save.
 
 
@@ -62,14 +59,14 @@ Follow the steps to in the following video to set up Firebase with Flutter.Click
 
 
 # Integration with Stripe
-Create a stripe account using the following link. Click [here](https://stripe.com/en-ie)
+Create a stripe account using the following link. Click [here](https://stripe.com/en-ie).
 Make sure test mode is enabled.
 Click on Developers and click on API keys.
 Make note of your publishable key and your secret key. 
 
 
 ## Deploy the cloud function
-Watch this video getting started with cloud functions. Click [here](https://www.youtube.com/watch?v=DYfP-UIKxH0&list=PLl-K7zZEsYLkPZHe41m4jfAxUi0JjLgSM&index=2)
+Watch this video getting started with cloud functions. Click [here](https://www.youtube.com/watch?v=DYfP-UIKxH0&list=PLl-K7zZEsYLkPZHe41m4jfAxUi0JjLgSM&index=2).
 Deploy the cloud function to your firebase database.
 
 Here the steps:
@@ -85,8 +82,8 @@ Here the steps:
    ```
     firebase login
    ``` 
-7. Select the firebase project you created earlier. This is where you want to put the firebase function. 
-8. Set your stripe private key which you got from your stripe account using the following command 
+   Select the firebase project you created earlier. This is where you want to put the firebase function. 
+7. Set your stripe private key which you got from your stripe account using the following command 
    ```
        firebase functions:config:set stripe.test key=""
    ``` 
@@ -115,10 +112,10 @@ Here the steps:
 Follow the steps to set up your own Dialog flow. Click [here](https://www.youtube.com/watch?v=GC6VAWi1n14)
 
 ## Setting Up DialogFlow Account
-1. Create a Dialogflow account.
+Create a Dialogflow account.
 
 ## Create an Agent
-1. Create an agent and give a name to agent. This will create a   google project automatically with project id.
+ Create an agent and give a name to agent. This will create a   google project automatically with project id.
 
 ## Download API key from Google Cloud.
 1. Go to google console and find the project. 
@@ -131,7 +128,7 @@ Follow the steps to set up your own Dialog flow. Click [here](https://www.youtub
 8. The JSON file is downloaded. 
 
 ## Create Intents 
-1. Follow the steps in the video to create intents for the app.
+ Follow the steps in the video to create intents for the app.
 
 
 ## Replace JSON file
@@ -143,6 +140,4 @@ Follow the steps to set up your own Dialog flow. Click [here](https://www.youtub
 
 
 
-Install Android Studio [here](https://developer.android.com/studio?gclid=CjwKCAjwiOCgBhAgEiwAjv5whFKiuYJtd_MgzZ_hon0WUILpXWpUlqK13_zlc2UW21Qo513Gt0VD3xoC38UQAvD_BwE&gclsrc=aw.ds)
 
-Install Visual Studio Code [here](https://code.visualstudio.com/download)
